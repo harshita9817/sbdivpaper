@@ -1,0 +1,23 @@
+
+
+
+
+
+
+
+
+
+df2<- cor(df2, method = c("pearson", use = "complete.obs"))
+datatraits<- read.csv("traitsworkout.csv")
+df2<-popdata[,2:8]
+df3<-df3[,-1]
+df3 <- na.omit(datatraits)res <- cor(df3)head(df2)res2 <- rcorr(as.matrix(df3))res2
+corrplot(res, type = "upper", order = "hclust",
+         tl.col = "black", tl.srt = 45)# Insignificant correlation are crossed
+corrplot(res2$r, type="upper", order="hclust",
+         p.mat = res2$P, sig.level = 0.01, insig = "blank")
+# Insignificant correlations are leaved blank
+corrplot(res2$r, type="upper", order="hclust",
+         p.mat = res2$P, sig.level = 0.01, insig = "blank")
+ ######################################################################################################################
+ 
